@@ -1,0 +1,32 @@
+{
+  "name": "rabbitcms/shop",
+  "description": "Shop module for RabbitCMS",
+  "keywords": [
+    "laravel",
+    "order",
+    "shop",
+    "rabbitcms"
+  ],
+  "require": {
+    "php": ">=7.0.9",
+    "laravel/framework": "5.3.* | 5.4.*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kulyk Dmytro",
+      "email": "lnkvisitor.ts@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "RabbitCMS\\Shop\\": "src/"
+    }
+  },
+  "extra": {
+    "module": {
+      "enabled":false,
+      "providers": "RabbitCMS\\Shop\\ModuleProvider"
+    }
+  }
+}
