@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use RabbitCMS\Carrot\Eloquent\PrintableJson;
 use RabbitCMS\Shop\Contracts\CustomerContract;
+use RabbitCMS\Shop\Entities\Concerns\HasTablePrefix;
 use RuntimeException;
 
 /**
@@ -22,6 +23,7 @@ class Order extends Model
 {
     use SoftDeletes;
     use PrintableJson;
+    use HasTablePrefix;
 
     const STATUS_NEW = 0;
     const STATUS_PENDING = 1;
@@ -29,7 +31,7 @@ class Order extends Model
     const STATUS_CANCELED = 10;
     const STATUS_REFUNDED = 11;
 
-    protected $table = "shop2_orders";
+    protected $table = 'orders';
 
     protected $casts = [
         'options' => 'array'

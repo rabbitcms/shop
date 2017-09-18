@@ -6,25 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use RabbitCMS\Shop\Contracts\InteractiveItemContract;
-use RabbitCMS\Shop\Contracts\ItemContract;
+use RabbitCMS\Shop\Contracts\ItemInterface;
+use RabbitCMS\Shop\Entities\Concerns\HasTablePrefix;
 use RuntimeException;
 
 /**
  * Class Item.
  * @package RabbitCMS\Shop
  *
- * @property-read int $id
- * @property-read ItemContract $item
- * @property-read string $caption
- * @property-read string $description
- * @property-read float $price
- * @property-read int $count
- * @property-read Order $order
- * @property-read int $order_id
+ * @property-read int           $id
+ * @property-read ItemInterface $item
+ * @property-read string        $caption
+ * @property-read string        $description
+ * @property-read float         $price
+ * @property-read int           $count
+ * @property-read Order         $order
+ * @property-read int           $order_id
  */
 class Item extends Model implements InteractiveItemContract
 {
-    protected $table = 'shop2_items';
+    use HasTablePrefix;
+
+    protected $table = 'items';
 
     protected $casts = [
         'count' => 'int',
@@ -32,10 +35,10 @@ class Item extends Model implements InteractiveItemContract
     ];
 
     /**
-     * @param ItemContract $item
-     * @param int $count
+     * @param ItemInterface $item
+     * @param int           $count
      */
-    public function associate(ItemContract $item, int $count = 1)
+    public function associate(ItemInterface $item, int $count = 1)
     {
         if ($item instanceof Model) {
             $this->item()->associate($item);

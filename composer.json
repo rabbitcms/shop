@@ -21,11 +21,13 @@
   "autoload": {
     "psr-4": {
       "RabbitCMS\\Shop\\": "src/"
-    }
+    },
+    "classmap": [
+      "src/Database/Migrations"
+    ],
   },
   "extra": {
     "module": {
-      "enabled":false,
       "providers": "RabbitCMS\\Shop\\ModuleProvider"
     }
   }

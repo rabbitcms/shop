@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Crypt;
 use RabbitCMS\Shop\Contracts\SellerContract;
+use RabbitCMS\Shop\Entities\Concerns\HasTablePrefix;
 
 /**
  * Class Seller
@@ -17,7 +18,8 @@ use RabbitCMS\Shop\Contracts\SellerContract;
  */
 class Seller extends Model implements SellerContract
 {
-    protected $table = 'shop2_sellers';
+    use HasTablePrefix;
+    protected $table = 'sellers';
 
     protected $casts = [
         'options' => 'array',
