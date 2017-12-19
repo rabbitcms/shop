@@ -24,7 +24,7 @@
     },
     "classmap": [
       "src/Database/Migrations"
-    ],
+    ]
   },
   "extra": {
     "module": {

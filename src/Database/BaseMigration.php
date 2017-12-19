@@ -20,6 +20,6 @@ class BaseMigration extends Migration
      */
     public function getTable(string $table): string
     {
-        return Modules::detect(get_class($this))->config('table_prefix') . $table;
+        return Modules::detect(__CLASS__)->config('table_prefix') . $table;
     }
 }

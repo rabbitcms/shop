@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use RabbitCMS\Shop\Database\BaseMigration;
 use RabbitCMS\Shop\Contracts\PriceInterface;
 
-class CreateShopPricesTable extends Migration
+class CreateShopPricesTable extends BaseMigration
 {
     /**
      * Run the migrations.
@@ -27,11 +27,11 @@ class CreateShopPricesTable extends Migration
 
             $table->foreign('product_id')
                 ->references('id')->on($this->getTable('products'))
-                ->onDelete('restricted');
+                ->onDelete('restrict');
 
             $table->foreign('base_id')
                 ->references('id')->on($this->getTable('products'))
-                ->onDelete('restricted');
+                ->onDelete('restrict');
         });
     }
 

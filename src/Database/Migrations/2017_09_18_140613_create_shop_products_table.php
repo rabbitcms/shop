@@ -31,7 +31,7 @@ class CreateShopProductsTable extends BaseMigration
 
             $table->foreign('parent_id')
                 ->references('id')->on($this->getTable('products'))
-                ->onDelete('restricted');
+                ->onDelete('restrict');
         });
     }
 
